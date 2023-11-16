@@ -146,7 +146,12 @@ export const VoteMake = ({ navigation, route }) => {
       try {
         const response = await axios.post(
           'https://port-0-capstone-backend-1d6du62aloxt3u8i.sel5.cloudtype.app/polls',
-          data
+          data,
+          {
+            headers: {
+              'AUTH-TOKEN': jwtToken,
+            },
+          }
         );
 
         if (response.status === 201) {
